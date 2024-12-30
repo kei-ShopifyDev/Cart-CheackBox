@@ -73,6 +73,22 @@
                 </small>
               </div>
             {%- else -%}
+              {% comment %} ↓↓ カートチェックボックス {% endcomment %}
+              {%- assign flg_check = false -%}
+              {%- for item in cart.items -%}
+                {%- if flg_check == false -%}
+                  {%- for collection in item.product.collections -%}
+                    {%- if collection.title == "キッズ" -%}
+                      <div class="cart__check">
+                        <input type="checkbox" id="cart_check" value="1">
+                        <label for="cart_check">子供靴が含まれていますがお間違えはありませんか？</label>
+                      </div>
+                      {%- assign flg_check = true -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                {%- endif -%}
+              {%- endfor -%}
+              {% comment %} ↑↑ カートチェックボックス {% endcomment %}
               <div class="cart__ctas" {{ block.shopify_attributes }}>
                 <noscript>
                   <button type="submit" class="cart__update-button button button--secondary" form="cart">

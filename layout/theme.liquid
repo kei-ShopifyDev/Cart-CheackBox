@@ -237,6 +237,7 @@
       document.documentElement.classList.add('shopify-design-mode');
     }
     </script>
+
   </head>
 
   <body class="gradient">
@@ -294,5 +295,9 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    {% comment %} カートチェックボックス {% endcomment %}
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <script src="{{ 'my-script.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>
